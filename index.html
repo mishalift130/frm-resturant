@@ -1,237 +1,562 @@
 <!DOCTYPE html>
-<html lang="en">
-<title>W3.CSS Template</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
 <style>
-body {font-family: "Lato", sans-serif}
-.mySlides {display: none}
+/* body and nav */
+*{
+padding:0;
+margin:0;
+text-decoration:none;
+list-style:none;
+box-sizing:border-box;
+}
+body {
+font-family:serif;
+
+}
+nav {
+background:#00004d;
+height:80px;
+width:100%;
+}
+label.logo {
+color:#00ff80;
+font-size:25px;
+line-height:80px;
+padding:0 15px;
+font-weight:bold;
+}
+nav ul {
+float:right;
+margin-right:20px;
+
+}
+nav ul li {
+display:inline-block;
+line-height:80px;
+margin: 0 5px;
+}
+nav ul li a{
+color:orange;
+font-size:17px;
+padding:7px 34px;
+border-radius:3px;
+text-transform:uppercase;
+}
+a.active,a:hover {
+background:black;
+transition: .5s;
+}
+.checkbtn {
+color:white;
+font-size:30px;
+float:right;
+line-height:80px;
+margin-right:40px;
+cursor:pointer;
+display:none;
+}
+#check {
+display:none;
+}
+@media(max-width:952px) {
+label.logo {
+font-size:30px;
+padding-left:50px;
+}
+nav ul li a{
+font-size:16px;
+}
+}
+@media(max-width:858px){
+.checkbtn{
+display:block;
+}
+ul {
+position:absolute;
+width:100%;
+height:100vh;
+top:80px;
+left:-100%;
+text-align:center;
+background:lightgreen;
+transition: all .5s;
+}
+nav ul li {
+display:block;
+margin:20px 0;
+line-height:50px;
+}
+nav ul li a{
+font-size:20px;
+}
+a.active,a:hover {
+background:black;
+color:#00ff80;
+}
+#check:checked ~ ul {
+left:0;
+}
+}
+/*searchbar*/
+.search-box {
+width:270px;
+
+
+margin:2%;
+
+background-color:black;
+height:50px;
+border-radius:40px;
+padding:10px;
+}
+.search-btn {
+color:black;
+float:right;
+width:30px;
+height:30px;
+border-radius:50%;
+background-color:tomato;
+display:flex;
+align-items:center;
+justify-content:center;
+text-decoration:none;
+transition:.4s;
+}
+.search-txt {
+border:none;
+outline:none;
+background-color:black;
+padding:0;
+float:left;
+color:white;
+font-size:16px;
+transition:.4s;
+line-height:30px;
+width:0;
+}
+.search-box:hover > .search-txt{
+width:150px;
+
+padding:0 2px;
+}
+.search-box:hover > .search-btn{
+background-color:white;
+}
+/*portfolio,our team,ctc. */
+section {
+background: url("https://images.pexels.com/photos/750913/pexels-photo-750913.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940") no-repeat;
+background-size:cover;
+height:calc(100vh - 80px);
+}
+/* section 2*/
+.service {
+padding:10px;
+background:white;
+text-align:center;
+border:2px solid black;
+height:1500px;
+}
+
+/*slide*/
+.slidershow{
+  width: 60%;
+  height: 85%;
+  overflow: hidden;
+  box-shadow: 0 4px 5px 0 rgba(0, 3, 0), 0 6px 30px 0 rgba(0, 0, 0);
+}
+.middle{
+  position: absolute;
+  top: 300%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+.navigation{
+background:orange;
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+}
+.bar{
+
+  width: 20px;
+  height: 10%;
+  border: 2px solid #fff;
+  margin: 6px;
+  cursor: pointer;
+  transition: 0.4s;
+}
+.bar:hover{
+  background:orange;
+}
+
+input[name="r"]{
+    position: absolute;
+    visibility: hidden;
+}
+
+.slides{
+  width: 500%;
+  height: 100%;
+  display: flex;
+}
+
+.slide{
+  width: 20%;
+  transition: 0.6s;
+}
+.slide img{
+  width: 100%;
+  height: 100%;
+}
+
+#r1:checked ~ .s1{
+  margin-left: 0;
+}
+#r2:checked ~ .s1{
+  margin-left: -20%;
+}
+#r3:checked ~ .s1{
+  margin-left: -40%;
+}
+#r4:checked ~ .s1{
+  margin-left: -60%;
+}
+#r5:checked ~ .s1{
+  margin-left: -80%;
+}
+
+/*slide end*/
+/*project*/
+.hov {
+opacity:30%;
+}
+.hov:hover {
+opacity:1;
+}
+.proj {
+position:static;
+top:80%;
+}
+.flex-container2 {
+  display: flex;
+  align-items: stretch;
+  background-color: #f1f1f1;
+  
+}
+
+.flex-container2>div {
+  background-color: white;
+  color: white;
+  
+  width: 50%;
+  margin: 10px;
+  text-align: center;
+  line-height: 75px;
+  font-size: 30px;
+  box-shadow: 0 4px 5px 0 rgba(0, 3, 0), 0 6px 30px 0 rgba(0, 0, 0);
+}
+
+/* section 3*/
+#ourtm{
+padding:10px;
+}
+#ourstry {
+
+height:1000px;
+background:white;
+padding:20px;
+
+text-align:center;
+font-size:20px;
+border:2px solid black;
+}
+div.gallery {
+padding:10px;
+  margin: 5px;
+  border: 1px solid #ccc;
+  margin-left:auto;
+  margin-right:auto;
+  width: 60%;
+  box-shadow: 0 4px 5px 0 rgba(0, 3, 0), 0 6px 30px 0 rgba(0, 0, 0);
+}
+
+div.gallery:hover {
+  border: 1px solid #777;
+}
+
+div.gallery img {
+  width: 100%;
+  height: auto;
+}
+
+div.desc {
+
+  padding: 5px;
+  text-align: center;
+}
+
+/* footer  */
+#fter {
+width:100%;
+height:40%;
+border:2px solid black;
+}
+.flex-container {
+
+  display: inline;
+  justify-content:center;
+  background-color: black;
+}
+
+.flex-container > div {
+  background-color: transparent;
+  width:100%;
+  height:250px;
+ margin:5px;
+  text-align: center;
+  
+  font-size: 20px;
+}
+.cpm {
+margin:5px;
+font-size:20px;
+ text-align: left;
+  line-height: 20px;
+}
+
+#use {
+width: 90%;
+height:40px;
+padding: 10px 10px;
+margin: 5px 0;
+border-left: 0;
+border-top: 0;
+border-right: 0;
+border: 2px solid darkblue;
+outline: none;
+background: black;
+}
+
+#submit-btn{
+color:white;
+font-size:15px;
+padding:5px;
+justify-content:center;
+cursor: pointer;
+display: block;
+background: black;
+border: 0;
+outline: none;
+
+}
+#cont {
+margin:5px;
+font-size:20px;
+ text-align: left;
+  line-height: 30px;
+}
+
+
+
+
 </style>
+</head>
 <body>
+<nav>
+<input type="checkbox" id ="check">
+<label for="check" class="checkbtn">
+<i class ="fas fa-bars"></i>
+</label>
+<label class="logo">PALILA.web</label>
+<ul>
+<li><a class="active" href="#">Home</a></li>
+<li><a href="#ourtm">About</a></li>
+<li><a href="#srvc-are">Services</a></li>
+<li><a href="#cf">VALUATION</a></li>
+<li><a href="#contc">Contacts</a></li>
+</ul>
+</nav>
+<section>
+<div class="search-box">
+<input class="search-txt" type="text"placeholder="Type to search">
+<a class="search-btn"href="#">
+<i class="fas fa-search"></i>
+</a>
+</div>
+</section>
 
-<!-- Navbar -->
-<div class="w3-top">
-  <div class="w3-bar w3-black w3-card">
-    <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
-    <a href="#" class="w3-bar-item w3-button w3-padding-large">HOME</a>
-    <a href="#band" class="w3-bar-item w3-button w3-padding-large w3-hide-small">BAND</a>
-    <a href="#tour" class="w3-bar-item w3-button w3-padding-large w3-hide-small">TOUR</a>
-    <a href="#contact" class="w3-bar-item w3-button w3-padding-large w3-hide-small">CONTACT</a>
-    <div class="w3-dropdown-hover w3-hide-small">
-      <button class="w3-padding-large w3-button" title="More">MORE <i class="fa fa-caret-down"></i></button>     
-      <div class="w3-dropdown-content w3-bar-block w3-card-4">
-        <a href="#" class="w3-bar-item w3-button">Merchandise</a>
-        <a href="#" class="w3-bar-item w3-button">Extras</a>
-        <a href="#" class="w3-bar-item w3-button">Media</a>
+<section class="service">
+<h2 id="srvc-are">SERVICES AND</h2>
+<div id="srv">
+
+<div class="slidershow middle">
+
+      <div class="slides">
+        <input type="radio" name="r" id="r1" checked>
+        <input type="radio" name="r" id="r2">
+        <input type="radio" name="r" id="r3">
+        <input type="radio" name="r" id="r4">
+        <input type="radio" name="r" id="r5">
+        <div class="slide s1">
+          <img src="https://cdn.pixabay.com/photo/2016/09/21/11/24/carousel-1684591_960_720.png" alt="">
+        </div>
+        <div class="slide">
+          <img src="https://cdn.pixabay.com/photo/2016/12/28/08/15/hummingbird-1935665_960_720.png" alt="">
+        </div>
+        <div class="slide">
+          <img src="https://cdn.pixabay.com/photo/2017/07/09/12/28/magenta-2486835_960_720.png" alt="">
+        </div>
+        <div class="slide">
+          <img src="https://images.pexels.com/photos/1750823/pexels-photo-1750823.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
+        </div>
+        <div class="slide">
+          <img src="https://images.pexels.com/photos/1154504/pexels-photo-1154504.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
+        </div>
+      </div>
+
+      <div class="navigation">
+        <label for="r1" class="bar"></label>
+        <label for="r2" class="bar"></label>
+        <label for="r3" class="bar"></label>
+        <label for="r4" class="bar"></label>
+        <label for="r5" class="bar"></label>
       </div>
     </div>
-    <a href="javascript:void(0)" class="w3-padding-large w3-hover-red w3-hide-small w3-right"><i class="fa fa-search"></i></a>
-  </div>
 </div>
 
-<!-- Navbar on small screens (remove the onclick attribute if you want the navbar to always show on top of the content when clicking on the links) -->
-<div id="navDemo" class="w3-bar-block w3-black w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:46px">
-  <a href="#band" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">BAND</a>
-  <a href="#tour" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">TOUR</a>
-  <a href="#contact" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">CONTACT</a>
-  <a href="#" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">MERCH</a>
+<div class="proj">
+<h2>PROJECTS</h2><br>
+<div class="flex-container2">
+
+
+  <div style="order: 3"><img src="https://images.pexels.com/photos/464372/pexels-photo-464372.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="My photo"height="100%"width="100%" class="hov"></div>
+  <div style="order: 2"><img src="https://images.pexels.com/photos/961113/pexels-photo-961113.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="My photo"height="100%"width="100%"class="hov"></div>
+  <div style="order: 4"><img src="https://images.pexels.com/photos/1662582/pexels-photo-1662582.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="My photo"height="100%"width="100%"class="hov"></div> 
+  <div style="order: 1"><img src="https://images.pexels.com/photos/2416920/pexels-photo-2416920.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="My photo"height="100%"width="100%"class="hov"></div>
+</div>
+<div class="flex-container2">
+
+  <div style="order: 3"><img src="https://cdn.pixabay.com/photo/2020/03/19/21/35/covid-4948866_960_720.jpg" alt="My photo"height="100%"width="100%"class="hov"></div>
+  <div style="order: 2"><img src="https://cdn.pixabay.com/photo/2020/02/15/16/09/loveourplanet-4851331_960_720.jpg" alt="My photo"height="100%"width="100%"class="hov"></div>
+  <div style="order: 4"><img src="https://cdn.pixabay.com/photo/2016/08/25/07/30/red-1618916_960_720.png" alt="My photo"height="100%"width="100%"class="hov"></div> 
+  <div style="order: 1"><img src="https://cdn.pixabay.com/photo/2016/12/28/08/15/hummingbird-1935665_960_720.png" alt="My photo"height="100%"width="100%"class="hov"></div>
+</div>
+<p>ImgSource:pixabay and pexels</p>
+</div>
+</section>
+
+<section id="ourstry">
+<div >
+<h2 id="ourtm">OUR TEAM</h2>
+<div id="slideshow">
+<div class="gallery">
+  <a target="_blank" href="#">
+    <img src="https://images.pexels.com/photos/2350471/pexels-photo-2350471.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Cinque Terre" width="600" height="400">
+  </a>
+  <div class="desc"><strong>MISHAL</strong><br>WEBSITE DESIGNER. </div>
 </div>
 
-<!-- Page content -->
-<div class="w3-content" style="max-width:2000px;margin-top:46px">
+<div class="gallery">
+  <a target="_blank" href="#">
+    <img src="https://images.pexels.com/photos/753994/pexels-photo-753994.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Forest" width="600" height="400">
+  </a>
+  <div class="desc"><strong>ESHTIAQUE</strong><br>PHOTO SELECTOR.</div>
+</div>
 
-  <!-- Automatic Slideshow Images -->
-  <div class="mySlides w3-display-container w3-center">
-    <img src="/w3images/la.jpg" style="width:100%">
-    <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
-      <h3>Los Angeles</h3>
-      <p><b>We had the best time playing at Venice Beach!</b></p>   
-    </div>
-  </div>
-  <div class="mySlides w3-display-container w3-center">
-    <img src="/w3images/ny.jpg" style="width:100%">
-    <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
-      <h3>New York</h3>
-      <p><b>The atmosphere in New York is lorem ipsum.</b></p>    
-    </div>
-  </div>
-  <div class="mySlides w3-display-container w3-center">
-    <img src="/w3images/chicago.jpg" style="width:100%">
-    <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
-      <h3>Chicago</h3>
-      <p><b>Thank you, Chicago - A night we won't forget.</b></p>    
-    </div>
-  </div>
+<div class="gallery">
+  <a target="_blank" href="#">
+    <img src="https://images.pexels.com/photos/2505019/pexels-photo-2505019.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Northern Lights" width="600" height="400">
+  </a>
+  <div class="desc"><strong>ARFAT</strong><br>GRAPHICS DESIGNER.</div>
+</div>
 
-  <!-- The Band Section -->
-  <div class="w3-container w3-content w3-center w3-padding-64" style="max-width:800px" id="band">
-    <h2 class="w3-wide">THE BAND</h2>
-    <p class="w3-opacity"><i>We love music</i></p>
-    <p class="w3-justify">We have created a fictional band website. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-      ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur
-      adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-    <div class="w3-row w3-padding-32">
-      <div class="w3-third">
-        <p>Name</p>
-        <img src="/w3images/bandmember.jpg" class="w3-round w3-margin-bottom" alt="Random Name" style="width:60%">
-      </div>
-      <div class="w3-third">
-        <p>Name</p>
-        <img src="/w3images/bandmember.jpg" class="w3-round w3-margin-bottom" alt="Random Name" style="width:60%">
-      </div>
-      <div class="w3-third">
-        <p>Name</p>
-        <img src="/w3images/bandmember.jpg" class="w3-round" alt="Random Name" style="width:60%">
-      </div>
-    </div>
-  </div>
+<div class="gallery">
+  <a target="_blank" href="#">
+    <img src="https://images.pexels.com/photos/957917/night-photograph-starry-sky-night-sky-star-957917.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Mountains" width="600" height="400">
+  </a>
+  <div class="desc"><strong>NAIM</strong><br>WEBSITE MAINTAINER.</div>
+</div>
+</div>
+</div>
 
-  <!-- The Tour Section -->
-  <div class="w3-black" id="tour">
-    <div class="w3-container w3-content w3-padding-64" style="max-width:800px">
-      <h2 class="w3-wide w3-center">TOUR DATES</h2>
-      <p class="w3-opacity w3-center"><i>Remember to book your tickets!</i></p><br>
+<div>
+<h2 id="ourtm">OUR STORY</h2>
+<p>We have created a fictional "personal" website/blog, and our fictional character is a hobby photographer. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+</div>
+</section>
 
-      <ul class="w3-ul w3-border w3-white w3-text-grey">
-        <li class="w3-padding">September <span class="w3-tag w3-red w3-margin-left">Sold out</span></li>
-        <li class="w3-padding">October <span class="w3-tag w3-red w3-margin-left">Sold out</span></li>
-        <li class="w3-padding">November <span class="w3-badge w3-right w3-margin-right">3</span></li>
-      </ul>
 
-      <div class="w3-row-padding w3-padding-32" style="margin:0 -16px">
-        <div class="w3-third w3-margin-bottom">
-          <img src="/w3images/newyork.jpg" alt="New York" style="width:100%" class="w3-hover-opacity">
-          <div class="w3-container w3-white">
-            <p><b>New York</b></p>
-            <p class="w3-opacity">Fri 27 Nov 2016</p>
-            <p>Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
-            <button class="w3-button w3-black w3-margin-bottom" onclick="document.getElementById('ticketModal').style.display='block'">Buy Tickets</button>
-          </div>
+<footer id ="fter">
+<div class="flex-container" >
+  <div id="cf">
+  <h2 id="contc" >CONTACTS</h2>
+  <div id="cont">
+   <i class="fa fa-users" aria-hidden="true"></i><a href="#ourtm">Our Team</a><br>
+        <i class="fas fa-map-marker"></i> Chittagong, BD<br>
+        <i class="fas fa-phone "></i> Phone: +880 151515<br>
+        <i class="fas fa-envelope"></i> Email: frm.lol20@G-mail.com<br>
         </div>
-        <div class="w3-third w3-margin-bottom">
-          <img src="/w3images/paris.jpg" alt="Paris" style="width:100%" class="w3-hover-opacity">
-          <div class="w3-container w3-white">
-            <p><b>Paris</b></p>
-            <p class="w3-opacity">Sat 28 Nov 2016</p>
-            <p>Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
-            <button class="w3-button w3-black w3-margin-bottom" onclick="document.getElementById('ticketModal').style.display='block'">Buy Tickets</button>
-          </div>
-        </div>
-        <div class="w3-third w3-margin-bottom">
-          <img src="/w3images/sanfran.jpg" alt="San Francisco" style="width:100%" class="w3-hover-opacity">
-          <div class="w3-container w3-white">
-            <p><b>San Francisco</b></p>
-            <p class="w3-opacity">Sun 29 Nov 2016</p>
-            <p>Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
-            <button class="w3-button w3-black w3-margin-bottom" onclick="document.getElementById('ticketModal').style.display='block'">Buy Tickets</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Ticket Modal -->
-  <div id="ticketModal" class="w3-modal">
-    <div class="w3-modal-content w3-animate-top w3-card-4">
-      <header class="w3-container w3-teal w3-center w3-padding-32"> 
-        <span onclick="document.getElementById('ticketModal').style.display='none'" 
-       class="w3-button w3-teal w3-xlarge w3-display-topright">×</span>
-        <h2 class="w3-wide"><i class="fa fa-suitcase w3-margin-right"></i>Tickets</h2>
-      </header>
-      <div class="w3-container">
-        <p><label><i class="fa fa-shopping-cart"></i> Tickets, $15 per person</label></p>
-        <input class="w3-input w3-border" type="text" placeholder="How many?">
-        <p><label><i class="fa fa-user"></i> Send To</label></p>
-        <input class="w3-input w3-border" type="text" placeholder="Enter email">
-        <button class="w3-button w3-block w3-teal w3-padding-16 w3-section w3-right">PAY <i class="fa fa-check"></i></button>
-        <button class="w3-button w3-red w3-section" onclick="document.getElementById('ticketModal').style.display='none'">Close <i class="fa fa-remove"></i></button>
-        <p class="w3-right">Need <a href="#" class="w3-text-blue">help?</a></p>
-      </div>
-    </div>
-  </div>
-
-  <!-- The Contact Section -->
-  <div class="w3-container w3-content w3-padding-64" style="max-width:800px" id="contact">
-    <h2 class="w3-wide w3-center">CONTACT</h2>
-    <p class="w3-opacity w3-center"><i>Fan? Drop a note!</i></p>
-    <div class="w3-row w3-padding-32">
-      <div class="w3-col m6 w3-large w3-margin-bottom">
-        <i class="fa fa-map-marker" style="width:30px"></i> Chicago, US<br>
-        <i class="fa fa-phone" style="width:30px"></i> Phone: +00 151515<br>
-        <i class="fa fa-envelope" style="width:30px"> </i> Email: mail@mail.com<br>
-      </div>
-      <div class="w3-col m6">
-        <form action="/action_page.php" target="_blank">
-          <div class="w3-row-padding" style="margin:0 -16px 8px -16px">
-            <div class="w3-half">
-              <input class="w3-input w3-border" type="text" placeholder="Name" required name="Name">
-            </div>
-            <div class="w3-half">
-              <input class="w3-input w3-border" type="text" placeholder="Email" required name="Email">
-            </div>
-          </div>
-          <input class="w3-input w3-border" type="text" placeholder="Message" required name="Message">
-          <button class="w3-button w3-black w3-section w3-right" type="submit">SEND</button>
-        </form>
-      </div>
-    </div>
+  
+</div>
+  
+  <div>
+  <h2>FEEDBACK</h2>
+  <div class="cpm">
+ 
+<input type="text" id="use" name="username" placeholder="Your name">
+<input type="text" id="use" name="username" placeholder="Your Email">
+<br>
+<input type="text" id="use" name="username" placeholder="Your message">
+<br>
+<input type="submit" value="SEND MESSAGE" id="submit-btn">
+<p>Powered by PALILA.web</p>
   </div>
   
-<!-- End Page Content -->
+  </div>
+  
 </div>
 
-<!-- Image of location/map -->
-<img src="/w3images/map.jpg" class="w3-image w3-greyscale-min" style="width:100%">
 
-<!-- Footer -->
-<footer class="w3-container w3-padding-64 w3-center w3-opacity w3-light-grey w3-xlarge">
-  <i class="fa fa-facebook-official w3-hover-opacity"></i>
-  <i class="fa fa-instagram w3-hover-opacity"></i>
-  <i class="fa fa-snapchat w3-hover-opacity"></i>
-  <i class="fa fa-pinterest-p w3-hover-opacity"></i>
-  <i class="fa fa-twitter w3-hover-opacity"></i>
-  <i class="fa fa-linkedin w3-hover-opacity"></i>
-  <p class="w3-medium">Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
 </footer>
-
 <script>
-// Automatic Slideshow - change image every 4 seconds
-var myIndex = 0;
-carousel();
-
-function carousel() {
-  var i;
-  var x = document.getElementsByClassName("mySlides");
-  for (i = 0; i < x.length; i++) {
-    x[i].style.display = "none";  
-  }
-  myIndex++;
-  if (myIndex > x.length) {myIndex = 1}    
-  x[myIndex-1].style.display = "block";  
-  setTimeout(carousel, 4000);    
-}
-
-// Used to toggle the menu on small screens when clicking on the menu button
-function myFunction() {
-  var x = document.getElementById("navDemo");
-  if (x.className.indexOf("w3-show") == -1) {
-    x.className += " w3-show";
-  } else { 
-    x.className = x.className.replace(" w3-show", "");
-  }
-}
-
-// When the user clicks anywhere outside of the modal, close it
-var modal = document.getElementById('ticketModal');
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-}
+/**
+ * This function takes in a reference to a DOM element,
+ * assumes each of its children are <img> tags,
+ * and then makes a simple slideshow out of the images.
+ * @param container A DOM element
+ */
+var slideShow = function(container) {
+    this.images = [];
+    this.curImage = 0;
+    for (i = 0; i < container.childElementCount; i++) {
+        this.images.push(container.children[i]);
+        this.images[i].style.display = "none";
+    }
+    
+    // Handle going to to the next slide
+    var nextSlide = function() {
+        for (var i = 0; i < this.images.length; i++) {
+            this.images[i].style.display = "none";
+        }
+        this.images[this.curImage].style.display = "block";
+        this.curImage++;
+        if (this.curImage >= this.images.length) {
+            this.curImage = 0;
+        }
+        window.setTimeout(nextSlide.bind(this), 3000);
+    };
+    
+    nextSlide.call(this);
+};
+slideShow(document.getElementById("slideshow"))
 </script>
-
 </body>
 </html>
+
